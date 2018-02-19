@@ -1,0 +1,734 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href='NBII_classic.xsl' type='text/xsl'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Lucas, Robert C.</origin>
+        <pubdate>2017</pubdate>
+        <title>Bob Marshall Wilderness Complex (BMWC) 1982 visitor characteristics, attitudes, and use patterns</title>
+        <geoform>tabular digital data</geoform>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>Forest Service Research Data Archive</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.2737/RDS-2017-0015</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The data included in this publication include visitor characteristics, attitudes towards the wilderness experience, and use patterns for wilderness visitors to the Bob Marshall Wilderness Complex (BMWC) in 1982. Visitors were asked to provide contact information for a mail-back survey. Questions included that of age, education, types of groups, club memberships, attitudes such as satisfaction with wilderness experience, as well as use pattern questions such as method of travel, length of stay, and activities engaged in during trip. Over 700 responses were obtained. In part, the data were collected to replicate a 1970 study in the same area. The format of the surveys and data was informed by the earlier study for later trend anaylsis</abstract>
+      <purpose>The study of visitors to the BMWC was conducted to inform planning and management for outdoor recreational use in the BMWC. This study also partly replicated a study done in the same area in 1970, which allowed for the development of trends in the visitor characteristics, attitudes, and use patterns.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>1982</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>observed</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned</update>
+    </status>
+    <spdom>
+      <descgeog>The BMWC consists of three contiguous National Forest Wildernesses—the Bob Marshall, the Great Bear, and the Scapegoat—on both sides of the Continental Divide in the Rocky Mountains south of Glacier National Park. The Bob Marshall contains 1,009,000 acres (408,000 hectares [ha]), the Great Bear 287,000 acres (116,000 ha), and the Scapegoat 239,000 acres (97,000 ha), for a total in the complex of a little over 1.5 million acres (over 600,000 ha), or over 6 percent of all the wilderness acres in the National Forests at the time of the study. The BMWC is located in northwest Montana, just south of Glacier National Park. Nearby cities include Kalispell, Whitefish, and Missoula.</descgeog>
+      <bounding>
+        <westbc>-113.90461</westbc>
+        <eastbc>-112.54239</eastbc>
+        <northbc>48.49044</northbc>
+        <southbc>46.93797</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>visitor preferences</themekey>
+        <themekey>use characteristics</themekey>
+        <themekey>use patterns</themekey>
+        <themekey>visitor characteristics</themekey>
+        <themekey>attitudes</themekey>
+        <themekey>trends</themekey>
+        <themekey>Wilderness</themekey>
+        <themekey>planning</themekey>
+        <themekey>management</themekey>
+        <themekey>backcountry camping</themekey>
+        <themekey>horsepacking</themekey>
+        <themekey>carrying capacity</themekey>
+        <themekey>solitude</themekey>
+        <themekey>satisfaction</themekey>
+		<themekey>seasonal use</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>biota</themekey>
+        <themekey>boundaries</themekey>
+        <themekey>environment</themekey>
+        <themekey>health</themekey>
+        <themekey>planningCadastre</themekey>
+        <themekey>society</themekey>
+        <themekey>transportation</themekey>
+      </theme>
+      <theme>
+        <themekt>National Research &amp; Development Taxonomy</themekt>
+        <themekey>Environment and People</themekey>
+        <themekey>Inventory, Monitoring, &amp; Analysis</themekey>
+        <themekey>Natural Resource Management &amp; Use</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>United States of America</placekey>
+        <placekey>Montana</placekey>
+        <placekey>Bob Marshall Wilderness Complex</placekey>
+        <placekey>Scapegoat</placekey>
+        <placekey>Great Bear</placekey>
+        <placekey>Glacier National Park</placekey>
+        <placekey>National Forest Wilderness Areas</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>These data were collected using funding from the U.S. Government and can be used without additional permissions or fees. If you use these data in a publication, presentation, or other research product please use the following citation:
+ 
+Lucas, Robert C. 2017. Bob Marshall Wilderness Complex (BMWC) 1982 visitor characteristics, attitudes, and use patterns. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2017-0015</useconst>
+    <datacred>Funding for this project provided by the Aldo Leopold Wilderness Research Institute (ALWRI), which includes USDA Forest Service, Rocky Mountain Research Station (RMRS).</datacred>
+    <crossref>
+      <citeinfo>
+        <origin>Lucas, Robert C.</origin>
+        <pubdate>2014</pubdate>
+        <title>Visitor Characteristics, Attitudes, and Use Patterns in the Bob Marshall Wilderness Complex, 1970-82</title>
+        <geoform>document</geoform>
+        <serinfo>
+          <sername>Research Paper</sername>
+          <issue>INT-345</issue>
+        </serinfo>		
+        <pubinfo>
+          <pubplace>Ogden, UT</pubplace>
+          <publish>U.S. Department of Agriculture, Forest Service, Intermountain Research Station</publish>
+        </pubinfo>		
+        <othercit>Included in full data publication download (\Supplements\Lucas_1985_Visitor characteristics attitudes and use patterns in the BMWC 1970-1982.pdf).</othercit>
+      </citeinfo>
+    </crossref>
+    <crossref>
+      <citeinfo>
+        <origin>Cole, David N.</origin>
+        <pubdate>2012</pubdate>
+        <title>Campsite condition data for the Bob Marshall Wilderness</title>
+        <geoform>spreadsheet</geoform>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>Forest Service Research Data Archive</publish>
+        </pubinfo>		
+        <onlink>https://doi.org/10.2737/RDS-2012-0003</onlink>
+      </citeinfo>
+    </crossref>
+      <citeinfo>
+        <origin>Whitmore, Joshua G.</origin>
+        <origin>Borrie, William T.</origin>
+        <origin>Watson, Alan E.</origin>
+        <pubdate>2017</pubdate>
+        <title>Bob Marshall Wilderness Complex (BMWC) 2004 visitor preference and usage data along with characteristics and attitudes towards Fire Management</title>
+        <geoform>tabular digital data</geoform>
+        <pubinfo>
+          <pubplace>Fort Collins, CO</pubplace>
+          <publish>Forest Service Research Data Archive</publish>
+        </pubinfo>
+        <onlink>https://doi.org/10.2737/RDS-2017-0016</onlink>
+      </citeinfo>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>In some cases, a single variable may have multiple code descriptions which seem to be the same. These descriptions were taken from the original codebook, and it is unclear if there was a difference in meaning originally.</attraccr>
+    </attracc>
+    <logic>For most no/yes questions, response code '1' is 'No' and '2' is 'Yes,' but this is not true for all cases. Please pay attention to the response codes as noted per variable in the Entity and Attributes section below.
+	
+There are a few cases where a set of variables appear to be very similar to another set of variables. We left the data as originally entered. As an example: CMPCOD-OTHLOCN at the end of the data file are just a different (less compact) way of coding the original REJCOND-RESLOC. We believe CMPCOD-OTHLOCN were re-coded in 1988, after the fact, but we do not know specifically why.</logic>
+    <complete>In some cases unchecked boxes on the survey were counted as 'no' responses, and in others they were considered 'missing.'  Generally 'missing' codes seem to have been used when none of the boxes were checked for a question, whereas if some boxes were checked, the remaining unchecked boxes were considered to be 'No's. This may not always be the case.
+
+Several variables represent free text responses on the survey (i.e. "other"  descriptions or "comments"), however the corresponding text/codes in many cases have been lost. If the code is not included in the variable description, it is because that data has been lost.
+
+Note that typically a blank means not applicable, and a specific code (noted under variable descriptions) is used for missing. There may be some cases where this is not the case. The data are provided as originally entered and any information we have has been included.</complete>
+    <lineage>
+      <method>
+        <methtype>Field</methtype>
+        <methdesc>SOURCE OF SAMPLES:
+
+The study population was all adult visitors (defined as anyone 16 years old or older) entering the three areas in summer and fall. The basic method was personal contact of visitors, supplemented by temporary special registration stations.
+
+Three field workers in 1982 contacted all visitors entering or leaving at 34 trailheads on selected sample dates. (Sampling procedures are described below.) They briefly explained the study, and asked visitors 16 and older to voluntarily to provide their names and addresses so that some of them could be selected for a mail-back questionnaire about their trip and their ideas concerning wilderness. Managers estimate that personal contact at all trailheads was an average of at least five visitors per week. There was only one refusal in 1982.
+
+Special portable trail registers were used in 1982 at 14 trailheads estimated to average at least one but less than five visitors per week. 
+
+These special trail registers explained that a study was in progress, asked visitors at least 16 years old to register as individuals (not just the group leader), and provide full mailing addessses. Cooperation was excellent. Field checking in 1970 indicated registration rates of 94 percent for hikers and 67 percent for visitors with horses. Informal observation in 1982 suggested similar high registration rates.
+
+In both study years, visitors who entered at trailheads were included whether they crossed a wilderness boundary or not. Most sampled visitors entered one of the three wildernesses in 1982.
+
+
+MAIL-BACK QUESTIONNAIRE PROCEDURES: 
+
+Names and addresses of selected visitors were entered in two lists. One list was in questionnaire serial number order. It was used to log in returned questionnaires and to prepare followup mailings. In 1982, following procedures suggested by Dillman (1978), nonrespondents were sent a reminder postcard after 3 weeks, and, if no response was received, another questionnaire and cover letter were mailed 3 weeks later. 
+
+The other list of names and addresses was in alphabetical order to avoid sampling the same person repeatedly and unduly imposing on their cooperation. Less than 1 percent of the sampled persons were selected twice. They received a weight of 2. No one was selected more than twice.
+
+
+SAMPLE DESIGN: 
+
+The main sample design was a cluster sample, with paired selection of primary samples from unequal-sized clusters, with the clusters chosen with probabilities proportional to size (PPS) and subsampled with probabilities inversely proportional to size (Kish 1967, chapter 7). The PPS concept used estimates of average weekly use by the managers of each area as measures of "size." For example, imagine two trailheads, one (A) estimated to have 100 people entering per week, the other (B) estimated to have 10 per week. Trail A is 10 times as likely as B to be sampled (to receive direct trailhead checking). This sampling method means important major trails are almost sure to be sampled and guards against much time being wasted to produce few sample visitors; but it does not give every visitor an equal chance to be sampled. To achieve that, the persons whose names and addresses were obtained in each cluster at the different trailheads were then subsampled with probabilities inversely proportional to size. In the example, this means that persons on the list at A have only one-tenth the chance of being subsampled as persons at B. The probabilities proportional to size cancel out, and everyone has the same chance of being chosen in the final sample. In other words, a visitor at A is 10 times as likely as a visitor at B to have his or her name requested, but a visitor who gives his or her name at B is 10 times as likely to be mailed a questionnaire.
+
+One reason for this seemingly roundabout procedure was to try to produce final clusters of about the same size. Equal, or at least reasonably close, cluster sizes are important to produce an efficient sample that will yield precise, unbiased estimates, given the size of the sample (Kish 1967). In the example, if one-half of the trail B people were sampled and one-twentieth of the trail A people, each cluster would consist of five people if use was what it was estimated to be. Variation between actual use for a sample time period compared to the estimated use introduces unavoidable variations in cluster size, of course.
+
+Trails were chosen from summer and fall strata. In 1982 there were 74 clusters, based on 4-day weekday periods (Monday through Thursday) and 3-day weekends (Friday through Sunday), with a planned size of 10 people each.
+
+In 1982 the special registration signs at lightly used trailheads for the supplemental sample were in place continuously, resulting in a greater chance for these visitors to become involved in the survey than those contacted in person. Half of these registrants were sampled and, to avoid overrepresenting them, their responses were weighted down to provide equal representation with the basic cluster sample.</methdesc>
+        <methcite>
+          <citeinfo>
+            <origin>Lucas, Robert C.</origin>
+            <pubdate>2014</pubdate>
+            <title>Visitor Characteristics, Attitudes, and Use Patterns in the Bob Marshall Wilderness Complex, 1970-82</title>
+            <geoform>document</geoform>
+            <pubinfo>
+              <pubplace>Ogden, UT</pubplace>
+              <publish>Intermountain Research Station</publish>
+            </pubinfo>
+            <onlink>/Supplements/Lucas_1985_Visitor characteristics attitudes and use patterns in the BMWC 1970-1982.pdf</onlink>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Dillman, Don A.</origin>
+            <pubdate>1978</pubdate>
+            <title>Mail and telephone surveys: the total design method</title>
+            <geoform>book</geoform>
+            <pubinfo>
+              <pubplace>New York</pubplace>
+              <publish>Wiley &amp; Sons</publish>
+            </pubinfo>
+            <othercit>ISBN: 0471215554, 9780471215554; 325 p.</othercit>
+          </citeinfo>
+        </methcite>
+        <methcite>
+          <citeinfo>
+            <origin>Kish, Leslie</origin>
+            <pubdate>1967</pubdate>
+            <title>Survey Sampling</title>
+            <geoform>book</geoform>
+            <pubinfo>
+              <pubplace>New York</pubplace>
+              <publish>Wiley &amp; Sons</publish>
+            </pubinfo>
+            <othercit>643 p.</othercit>
+          </citeinfo>
+        </methcite>		
+      </method>	  
+    </lineage>
+  </dataqual>
+  <eainfo>
+    <overview>
+      <eaover>DATA
+	  
+This data publication contains the following comma-delimited ASCII text file containing the results of the mail-back survey. ** PLEASE REVIEW THE COMMENTS ON ACCURACY AND COMPLETENESS ABOVE to ensure that you understand some of the nuances of these data. The numbers in parentheses at the beginning of variable descriptions are the corresponding question number in the survey: \Supplements\BMWC_1982_Survey.pdf.
+
+*NOTE: There are a few questions that allow multiple responses (e.g. SHOT1, SHOT2, SHOT3 and TRLINF1, TRLINF2, TRLINF3). If there was a survey response provided only for the first and/or second (meaning they did not provide a response to all parts of the question), then the remaining responses were recorded as 0. These 0's are not specifically defined below. Unfortunately there are a few cases where the responses were not coded like this, but that is the exception and not the norm, and we are not sure why they were coded in this alternate manner.
+
+\Data\BMWC_1982_Data.csv:
+		
+Variables QNUM - WEIGHT were not answered by the visitor, but rather part of the sampling process		
+
+	 QNUM=4-digit questionnaire number with leading zeros	
+	 
+	 CLUS=Cluster number from sample list (01-37 ; For QNUM&gt;=9000=00; 99=missing)	
+	 
+	 SELEC=Cluster paired selection (1=(a) "west" half; 2=(b) "east" half; For QNUM&gt;=9000 = 0)	
+	 
+	 TRLHD=Number for entry trailhead (1=Indian Meadows; 4=N. Fk. Blackfoot; 5=Monture Crk; 6=Lodgepole Crk; 8=Pyramid Crk; 9=Owl Crk; 10=N. Side Holland; 11=Lion Crk Pass; 15=Meadow Crk; 16=Sivertip; 17=Schafer; 18=Big Bull Crk; 21=Ousel Peak; 24=Stanton Lake; 25=Big River Trail; 29=Morrison Crk; 30=Two Medicine; 32=Swift Reservoir; 34=W. Fk. Teton River; 36=Headquarters Pass; 38=Gibson Reservoir; 39=Benchmark; 41=Elk Crk; 42=Dearborn River; 43=Challenge River; 44=S-Lost Crk; 45=S-Napa Point; 46=S-Smith Crk; 47=S-Bear Crk; 48=S-Dry Crk; 49=S-Porcupine Basin; 50=S-Arrastra; 51=S-Whitewater Crk; 52=S-Blackleaf; 53=S-Essex; 54=S-Dunham Crk; 55=S-Marion Crk; 56=Lion Crk Pass)	
+	 
+	 SEASON=Date of entry season (1=summer, thru september 5th; 2=fall, september 6th on; 9=missing)	
+	 
+	 PRTYREP=Party representative or other party member (1=for one random person per party; 2=for all other persons in party; 9=missing)	
+	 ORIGIN=Visitor origin (Zip code (1st 3 digits) of address. Outside US, 001=Canada; 002=Mexico; 003=Europe; 004=Australia or New Zealand; 005=Mid-east (Israel, Syria, Egypt, etc.); 006=Rest of Asia (except mid-East); 007=Rest of Africa (except Egypt); 008=Latin America (except Mexico))	
+	 
+	 WEIGHT=Questionnaire weight (For all except QNUM &gt;=9000, number of times person was sampled (usually 1). For QNUM &gt;= 9000, multiply number of times person was sampled (usually 1) by summer hiker = 0.14; horseback=0.20; fall hiker=0.08; horseback =0.11.) Note: the use of sample multipliers generally appears after QNUM 9000, but not exclusively.
+
+	 
+(1) TRAVEL=Method of travel in the wilderness (1=hiked; 2=raft, etc.; 3=hiked with horses; 4=horseback; 5=trailbike; 9=missing)		
+
+(2a) NUMHORS=Number of horses, mules (99=missing, and had travel 3 or 4)		
+
+(2b) HORSFED=Horses fed supplemental feed? (1=no; 2=yes, hay; 3=yes, grain; 4=yes, pellets; 5=yes, combination; 9=missing (had horses))		
+
+(2c) HRSHNDL=Horse handling practices at night (1=corral; 2=tied to tree; 3=tied to rope line; 4=turned loose; 5=picketed; 6=hobbled; 7=other; 8=no horses or day use; 9=missing (had horses))		
+
+(3) FISH-OTHACT = What activities did you participate in? (1=no/not checked; 2=yes; 9=missing)		
+
+	 FISH=Fishing	
+	 
+	 HUNT=Hunting	
+	 
+	 HIKE=Hiking	
+	 
+	 NATUR=Nature Study	
+	 
+	 MTNCLM=Mountain Climbing	
+	 
+	 RAFT=Rafting, boating	
+	 
+	 SWIM=Swimming	
+	 
+	 PHOTO=Photography	
+	 
+	 OTHACT=Other activity	
+	 
+ NUMACT=Count of number of activities checked (9=missing)		
+	 
+(4) GRISOBS-OTHOBS = Which large wildlife did you observe? (1=no/not checked; 2=yes; 9=missing)		
+	 GRIZOBS=Grizzly Bear	
+	 
+	 BEAROBS=Black Bear	
+	 
+	 SUMBEAR=Bear, not sure what kind	
+	 
+	 ELKOBS=Elk	
+	 
+	 DEEROBS=Deer	
+	 
+	 GOATOBS=Mountain Goat	
+	 
+	 MOOSOBS=Moose	
+	 
+	 SHPOBS=Bighorn Sheep	
+	 
+	 OTHROBS=Other wildlife		 
+
+ NUMWOBS=Count number of species checked (9=missing)		
+
+(4) SHOT1-SHOT3 = If you were hunting, what did you get? (1=nothing; 2=Grizzly; 3=Black Bear; 4=Elk; 5=Deer; 6=Mountain Goat; 7=Bighorn Sheep; 8=other; 9=missing)		
+	 SHOT1=1st animal taken	
+	 
+	 SHOT2=2nd animal taken	
+	 
+	 SHOT3=3rd animal taken	
+
+(5) STAY=Number of nights stayed (0=day use; 99=missing)		
+
+(5) FIRE=Fire use (1=woodfire; 2=stove; 3=woodfire &amp; stove; 4=neither (campers only); 5=neither or missing (day-use only); 6=woodstove; 9=missing (campers only))		
+
+(6) OUTFTR=Outfitter use (1=no; 2=fully outfitted; 3=spot pack; 4=outfitted, type missing; 9=missing)		
+
+(7) MAPS=Did your party have maps or guidebooks for the Wilderness? (1=no; 2=yes; 9=missing; blank=no map or guides)		
+
+(7) TYPMAP=Types of Map-Book (1=Forest Service (FS); 2=United States Geologic Service (USGS); 3=FS &amp; USGS; 4=guidebook; 5=guidebook and FS; 6=guidebook and USGS; 7=all three; 8=other; 9=missing (had map))		
+
+(8) SOLE=Wilderness visit as sole purpose of trip (1=visiting wilderness sole purpose; 2=visited another place; 9=missing)		
+
+(9) VISIT=Have you ever visited any Wilderness before this trip? (1=no; 2=yes; 9=missing)		
+
+(9) AGEFST=Age during first wilderness visit (blank=no previous visit/not applicable; 99=missing (yes to VISIT))		
+
+(9) PARENT=1st visit with parents? (blank=not applicable; 1=no; 2=yes; 9=missing (yes to VISIT))		
+
+(9) NEWAREA=Do you usually return to Wilderness places you have already visited, or do you spend most of your time in areas new to you? (blank=not applicable; 1=new areas; 2=revisit areas; 3=both new and revisit; 9=missing, but checked "yes")		
+
+(10) EXPBOB=Visited this Wilderness before? (blank=not applicable (no to VISIT); 1=no; 2=yes; 9=missing  (yes to VISIT))		
+
+(10) NUMBOB=number previous visits  (blank=not applicable; 98=98 or more; 99=missing)		
+
+(10) AQUAL=Quality of area (blank=not applicable; 1=getting better; 2=about same; 3=getting worse; 9=missing)		
+
+(10) DIFF=What seems different? (blank=no answer; 1=more litter; 2=less litter; 3=more use; 4=less use; 5=trails worse; 6=trails better; 7=fishing, hunting worse; 8=fishing, hunting better; 9=other)		
+
+(11) LOCCHO=Did you personally choose (or help choose) the trailhead? (1=yes (DIFFERENT FROM OTHER YES NO); 2=no; 9=missing)		
+
+(11) WHOCHO=If "no", who chose? (1=outfitter; 2=someone else; 3=other; 9=missing; blank=not applicable)		
+
+(12) TIMCHO=timing of choice (blank=not applicable (answered no to LOCCHO); 1=on way; 2=&lt;24 hours; 3=24 hrs - 1 week; 4=1 week-1 month; 5= &gt;1 month; 9=missing)		
+
+(13) TRLINF1-TRLINF3 = How did you find out about the trailhead you chose? (blank=not applicable; 1=been there; 2=don’t remember; 3=studied map; 4=told by friends; 5=signs; 6=FS ranger; 7=guidebook; 8=newspaper; 9=magazine; 10=radio; 11=tv; 12=other; 99=missing). 
+
+	 TRLINF1=Source of trailhead info, first answer	
+	 
+	 TRLINF2=Source of trailhead info, second answer	
+	 
+	 TRLINF3=Source of trailhead info, third answer	
+
+(14) RESTRL1-RESTRL3 = What was there about this trailhead that caused you to choose it? (blank=not applicable; 1=close; 2=easy; 3=less crowded; 4=been there; 5=new area; 6=fishing, hunting; 7=other; 9=missing). 
+
+	 RESTRL1=Reason for choice of trailhead, 1st answer	
+	 
+	 RESTRL2=Reason for choice of trailhead, 2nd answer	
+	 
+	 RESTRL3=Reason for choice of trailhead, 3rd answer	
+
+(15) OTHRTRL=Were other trailheads considered? (blank=not applicable; 1=no; 2=yes)		
+
+(15) RESREJ1-RESREJ2 = What was there about rejected trailheads that caused you to choose another place? (blank, not applicable; 1=too difficult, steep, rough; 2=too much elevation gain; 3=too long drive to trailhead; 4=too poor road; 5=too far to wilderness boundary; 6=too far from destination; 7=too crowded; 8=time problems; 9=not enough information; 10=problems for horse access; 11=wanted to visit new area, already familiar with rejected trailhead; 12=no lakes close to trailhead; 13=lack of fishing or hunting; 14=private property access problem; 15=other; 99=missing). We believe that 0 means no answer provided.
+
+	RESREJ1=Reason 1st answer	
+	
+	RESREJ2=Reason 2nd answer	
+
+(16) FSINFO=Contact with forest service for info? (1=no; 2=yes; 9=missing)		
+
+(17a) FSCONT=Source of forest service info? (blank=not applicable (answered no to FSINFO); 1=visited FS office; 2=telephoned; 3=wrote; 4=visited &amp; telephoned; 5=visited &amp; wrote; 6=wrote &amp; telephoned; 7=all three; 9=missing (answered yes to FSINFO))		
+
+(17b) QUALINF=How well did the information you got from FS meet your needs? (blank=not applicable (ansered no to FSINFO); 1=very well; 2=fairly well; 3=not very well; 4=no opinion; 9=missing (answered yes to FSINFO))		
+
+(18) NUMVIS=Number of wilderness visits in past 12 months (99=missing)		
+
+(18) NUMDAYS=Number of days spent in wilderness in past 12 months (98=more than 98 days; 99=missing)		
+
+(19) =Importance of various reasons for visit (1=very important; 2=somewhat important; 3=not important; 9=missing)		
+
+	 SCENRY=Scenic beauty	
+	 
+	 FSHIMP=Fishing	
+	 
+	 HUNTIMP=Hunting	
+	 
+	 RELAX=Relaxation	
+	 
+	 EXERCZ=Exercise	
+	 
+	 ESCAPE=Escape civilization	
+	 
+	 DEVSKL=develop backcounty skills	
+	 
+	 SOLTUD=experience solitude	
+	 
+	 CHALNG=face challenge	
+	 
+	 AVDMEC=avoid mechanical recreation	
+	 
+	 OTHRES=other reasons 	
+
+(20) SATIS=satisfaction-grade of visit (1=A,very good; 2=B, good; 3=C, fair; 4=D, poor; 5=F, very poor; 9=missing)		
+
+(20)  HIPT1-HIPT3 = What was most satisfying about the trip? (000=None; 001=solitude, uncrowded; 002=wilderness, naturalness; 003=hunting success, quality; 004=fishing success, quality; 005=wildlife observation, general; 006=wildlife observation, grizzly; 007=hiking; 008=horseback riding; 009=camping; 010=scenery, beauty; 011=outfitter, guide; 012=trail conditions; 013=cleanliness; 014=pure water, clean water; 015=enjoyed companions, generally; 016=enjoyed companions, family; 017=enjoyed children, grandchildren; 018=enjoyed friends; 019=met challenge, proved self, etc.; 020=exercise, get in shape; 021=relax; 022=philosophize, think about things; 023=weather good; 024-999 as needed, for new variables that don't really fit any of these)		
+
+	HIPT1=High points-first answer	
+	
+	HIPT2=High points-second answer	
+	
+	HIPT3=High points-third answer	
+
+(20) LOPT1-LOPT3 = What was most dissatisfying about the trip? (000=none; 001=crowds, too many people, generally; 002=too many other campers close; 003=too many large parties; 004=too many horse parties;005=too many hunters; 006=too many fishermen; 007=too many floaters; 008=poor hunting; 009=poor fishing; 010=didn’t see much wildlife; 011=bear problems; 012=rodent problems; 013=insect trouble; 014=trouble with own horses; 015=personal health, others ill; 016=hard to find campsite; 017=poor campsites, generally; 018=scenery disappointing; 019=outfitter, guide poor; 020=accident, injury; 021=bad weather; 022=poor trails; 023=poor signs, too few; 024=behavior of other parties; 025=litter; 026=too hard, exhausting; 027=misinformation; 028=forest service rules; 029=Montana Fish &amp; Wildlife and Parks Department rules; 030=license fees; 031=horse manure; 032=human waste (feces); 033=dogs; 034-999=as needed for new variables that dont fit any of these.)		
+
+	LOPT1=Low points-first answer	
+	
+	LOPT2=Low points-second answer	
+	
+	LOPT3=Low points-third answer	
+
+(21) SOLSTD=How many other parties would you prefer camped within sight or sound of your camp? (97=adjectives such as "few", "not too many", etc.; 98=Doesn't matter, etc.; 99=missing)		
+
+(22) CAMPSOL=Could find campsites with desired level of solitude? (Blank=not applicable, didn't camp; 1=always, 2=usually; 3=sometimes; 4=never; 5=outfitter chose site; 6=didn’t participate in decision; 9=missing)		
+
+(23) ESTCAMP=Was first campsite usually chosen? (Blank=not applicable, didn't camp; 1=always, 2=usually; 3=sometimes; 4=never; 5=outfitter chose site; 6=didn’t participate in decision; 9=missing)		
+
+(24) REJCOND=Was a campsite rejected because of condition? (Blank=not applicable, didn’t camp; 1=no; 2=yes; 9=missing)		
+
+(24) RESCOND=Reason a campsite was rejected for condition? (Blank=not applicable; 1=litter; 2=horse manure; 3=bare ground, etc.; 4=old fire rings; 5=firewood scarce; 6=cut trees; 7=grazing scarce; 8=other; 9=missing)		
+
+(25) REJLOC=Was a campsite rejected because of location? (Blank=not applicable, didn't camp; 1=no; 2=yes; 9=missing)		
+
+(25) RESLOC=Reason a campsite was rejected for location? (Blank=not applicable; 1=poor view; 2=water too far; 3=too close to other camps; 4=too close to trail; 5=other; 9=missing)		
+
+(26) CMPSRCH=Searched off-trail for campsite? (Blank=not applicable, didn't camp; 1=no; 2=yes; 9=missing)		
+
+(27) PROBCMP=Problems finding unoccupied campsite? (Blank=not applicable, didn't camp; 1=no; 2=yes, at one place; 3=yes, at more than one place)		
+
+(28) TYPCMP=Used established or new campsites (Blank=not applicable, didn’t camp; 1=sites not camped on before; 2=sites camped on before; 3=both types; 9=missing)		
+
+(29) CROWD=Feelings about number of other visitors seen (1=way too few; 2=too few; 3=about right; 4=too many;5=way too many; 6=didn't matter; 7=don’t remember; 9=missing)		
+
+(30) NUMSEEN-HRSSEEN = (998=adjectives such as "lots", "some", "a few", etc.; 999=missing)		
+
+	NUMSEEN=Number of other parties seen	
+	
+	LRGSEEN=Number of large parties seen	
+	
+	HRSSEEN=Number of horse parties seen	
+	
+(map) NUMCMP-LOOP data were derived from detail drawn on the map in the survey		
+
+	NUMCMP=Number of campsites used (Counted from map (blank for day users); 99=missing)	
+	
+	VISWLD=reached wilderness boundary? (1=no;2=yes, reached at least to boundary;9=missing)	
+	
+	WCHWLD=Which wilderness(es) was (were) visited (0=none; 1=Bob Marshall; 2=scapegoat; 3=great bear; 4=bob marshall and scapegoat; 5=bob marshall and great bear; 6=all three; 9=missing)	
+	
+	HOWFAR=Distance travelled (approximately round trip distance) (Use map measuring device to determine approximate distance travelled beyond trailhead; 98=98 or more; 99=missing)	
+	
+	OFFTRL=Distance travelled off trails (Use map measuring device (be careful; some people draw carelessly off trail; should make some sense); 00=none; 99=missing)	
+	
+	LOOP=Entry and exit same? (1=entered and left at same trailhead; 2=entered one place, came out another; 9=missing)	
+
+(31) CRDPROB=Was crowding a problem? (1=no; 2=yes; 9=missing)		
+
+(31) CRDSPOT=Name of crowded place (99=missing; blank=not applicable)		
+
+(32) WEAR-LITTER = (1=very good; 2=good; 3=fair; 4=poor; 5=very poor; 6=do not remember; 9=missing)		
+
+	WEAR=Opinion of area condition - wear and tear	
+	
+	LITTER=Opinion of area condition - Litter	
+
+(32) WRONG=What seemed wrong? (99=missing; 00=nothing, blank)		
+
+(33) HITRHL-WLDRNG = How desireable or undesireable do you think each of the following is? (1=undesirable; 2=don’t care; 3=desirable; 4=desirable in heavy use; 9=missing)		
+
+	(33a) HITRHL=high standard trails	
+	
+	(33b) LOTRAIL=low standard trails	
+
+	(33c) TRLLESS=some trail-less areas 	
+
+	(33d) TREES= a few trees down	
+
+	(33e) SMLBRG=bridges and small streams	
+
+	(33f) BIGBRG=bridges and large rivers	
+
+	(33g) PRIVY=outhouses	
+
+	(33h) FRPLC=fireplace	
+
+	(33i) FRRING=fire rings	
+
+	(33j) NATFIRE=natural fires	
+
+	(33k) CORRAL=corrals at campsites	
+
+	(33l) NOHORSE=close some areas to horses?	
+
+	(33m) NOFIRE=prohibit wood fires	
+
+	(33n) TABLE= picnic tables	
+
+	(33o) RATION= limit use	
+
+	(33p) NOGRAZ=no grazing	
+
+	(33q) REQREG=requiring registration	
+
+	(33r) NATFSH=natural fishery	
+
+	(33s) SZLIMT=party size limit of 12	
+
+	(33t) FT200=prohibit camping within 200 feet of lakes	
+
+	(33u) RMVRNG=encourage removal of fire rings	
+
+	(33v) EXSIGN=explanatory signs	
+
+	(33w) BURY=burying garbage	
+
+	(33x) PWRSAW=administer use of chain saws	
+
+	(33y) GUIDBK=guidebook	
+
+	(33z) ACCMAP=accurate maps	
+
+	(33aa) ASSIGN=assigned campsites	
+
+	(33bb) DNWOOD=use only dead, downed wood	
+
+	(33cc) FSHEAT=fish to eat, but not bring out	
+
+	(33dd) PAKOUT=pack out garbage	
+
+	(33ee) WLDRNG=wilderness rangers	
+
+(33) METRNG=Did you meet a ranger in the wilderness? (1=no; 2=yes; 9=missing)		
+
+(33) COMENT=Comments (00=none)		
+
+(34) WLDIMP=How important or valuable are Wilderness areas to you personally? (1=extremely important; 2=very important; 3=fairly important; 4=not very important; 5=not at all important; 9=missing)		
+
+(35) BESTWLD-AGAIN = How well do each of the following statements describe your feelings about your recent trip? (1=very strongly disagree; 2=strongly disagree; 3=disagree; 4=neither agree or disagree; 5=agree; 6=strongly agree; 7=very strongly agree; 9=missing)		
+
+	 BESTWLD=This trip was better than any other wilderness trip	
+
+	 BESTREC=This trip was better than any other outdoor recreation	
+
+	 AGAIN=This trip was so good, I'd like to take it again	
+	 
+(36) SIZE=Number of people in party (99=missing)		
+
+(36) LITBOY-WOMEN = (99=missing; blank=not applicable)		
+
+	LITBOY=Number of males up to 14 years old	
+
+	LITGIRL=Number of females up to 14 years old	
+
+	BOYS=Number of males 15-24 years old	
+
+	GIRLS=Number of females 15-24 years old	
+
+	FELLAS=Number of males 25-44 years old	
+
+	GALS=Number of females 25-44 years old	
+
+	MEN=Number of males 45+ years old	
+
+	WOMEN=Number of females 45+ years old	
+
+(37) TYPGRP=Type of social group (1=family; 2=family plus friends; 3=friends; 4=organization; 5=other; 9=missing)		
+
+(38) CLUB=Club membership? (1=no; 2=yes; 9=missing)		
+
+(38) TYPCLUB=Type of club (Blank=not applicable (answered "no" for CLUB); 1=sierra club, wilderness society, montana wilderness association, friends of eath, national parks association (wilderness oriented organizations); 2=other conservation organization (e.g. american foresters association, national wildlife federation, audubon society, ducks unlimited, trout unlimited); 3=boy scouts, girl scouts, campire, etc, (youth organization); 4=backcountry horsemen; 5=other recreation organization (rod and gun clubs, etc.); 6=other (list) NRA, etc.; 7=combinations of 1 and 2; 8=other combinations other than 1 and 2; 9=missing)		
+
+(38) NUMCLUB=Number of clubs (blank=not applicable, no memberships; 9=missing)		
+
+(39) CURRES-CHLRES = (1=farm; 2=rural; 3=town; 4=small city; 5=medium city; 6=large city; 9=missing)		
+
+	CURRES=Residence-type of area currently	
+
+	CHLRES=Residence-type of area childhood	
+
+(40) EDUC=Number of years schooling (1-19+; 99=missing)		
+
+(40) STUDNT=Student status (1=no;2=yes;9=missing)		
+
+(41) OCCUP=Occupation (10=professional, technical; 20=farmer, farm manager; 30=other managers, official, proprieters; 40=clerical and kindred; 41=sales workers; 50=craftsmen, foremen;51=operatives and kindred; 60=service workers; 70=farm laborer; 71=mine laborer; 72=other laborer; 80=student; 81=housewife; 82=retired; 90=other; 91=unemployed; 92=military; 99=no answer)		
+
+ FINCMT=Final comments (blank=none; 1=basically favorable, approving, thank you, etc.; 2=basically negative comments, disaproving; 3=both positive and negative)		
+
+ MGTCMT=Management comments		
+
+ CMPCOD-OTHLOCN = These variables were part of a "1988 update", and are simply a new format for the same info already associated with survey questions 24 &amp; 25		
+
+ (24) CMPCOD=Pass up available campsite because of condition (1=no; 2=yes)	
+
+ (24) CMPLIT-CMPOTHR = If "yes", what didn't you like about it? (1=no; 2=yes)	
+
+ CMPLIT=Litter
+
+ HMANUR=Horse manure
+
+ BAREGND=bare ground or dust, exposed tree toots, erosion of the soil etc.
+
+ CMPREM=old campfire remains, rock fire rings, etc.
+
+ FWOODSC=firewood scarce
+
+ TREEDGD=cut or damaged trees
+
+ GRAZSCR=grazing for horses scarce
+
+ CMPOTHR=other
+
+ (25) CMPLOCN=Pass up available campsite because of location (1=no; 2=yes)	
+
+ (25) PORLOCN-OTHLOCN = If "yes", what didn't you like about it? (1=no; 2=yes)	
+
+ PORLOCN=poor view
+
+ WATLOCN=water too far away
+
+ OCCLOCN=too close to other occupied camps
+
+ TRLLOCN=too close to trail
+
+ OTHLOCN=other</eaover>
+      <eadetcit>\Supplements\BMWC_1982_Survey.pdf</eadetcit>
+    </overview>
+    <overview>
+      <eaover>SUPPLEMENTS
+
+This data publication includes 4 PDF/a files with the following content:
+
+\Supplements\BMWC 1982_Coding_Manual_Scan.pdf: Scan of the coding manual for the survey data. This scan should only be used after first consulting the Entities and Attributes section of the metadata, as it contains the same information. 
+
+\Supplements\BMWC_1982_Survey.pdf: Survey sent to visitors to Bob Marshall, Great Bear, and/or Scapegoat Wilderness Areas.
+
+\Supplements\BMWC_1982_Survey_Scan.pdf: Scan of an original survey sent to visitors to Bob Marshall, Great Bear, and/or Scapegoat Wilderness Areas.
+
+\Supplements\Lucas_1985_Visitor characteristics attitudes and use patterns in the BMWC 1970-1982.pdf: Publication based on surveys sent in 1970 and 1982 to visitors to Bob Marshall, Great Bear, and/or Scapegoat Wilderness Areas.</eaover>
+      <eadetcit>None provided.</eadetcit>
+    </overview>	
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>USDA Forest Service, Research and Development</cntorg>
+        </cntorgp>
+        <cntpos>Research Data Archivist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>240 West Prospect Road</address>
+          <city>Fort Collins</city>
+          <state>CO</state>
+          <postal>80526</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>see Contact Instructions</cntvoice>
+        <cntinst>This contact information was current as of March 2017. For current information see Contact Us page on: https://doi.org/10.2737/RDS.</cntinst>
+      </cntinfo>
+    </distrib>
+    <resdesc>RDS-2017-0015</resdesc>
+    <distliab>Metadata documents have been reviewed for accuracy and completeness. Unless otherwise stated, all data and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. However, neither the author, the Archive, nor any part of the federal government can assure the reliability or suitability of these data for a particular purpose. The act of distribution shall not constitute any such warranty, and no responsibility is assumed for a user's application of these data or related materials.
+
+The metadata, data, or related materials may be updated without notification. If a user believes errors are present in the metadata, data or related materials, please use the information in (1) Identification Information: Point of Contact, (2) Metadata Reference: Metadata Contact, or (3) Distribution Information: Distributor to notify the author or the Archive of the issues.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>ASCII</formname>
+          <formvern>see Format Specification</formvern>
+          <formspec>Comma-delimited ASCII text file (CSV)</formspec>
+          <filedec>Files zipped with Winzip 14.0</filedec>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.2737/RDS-2017-0015</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <digform>
+        <digtinfo>
+          <formname>PDF</formname>
+          <formvern>see Format Specification</formvern>
+          <formspec>Adobe Acrobat PDF or PDF/a file</formspec>
+          <filedec>Files zipped with Winzip 14.0</filedec>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.2737/RDS-2017-0015</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20170315</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Alan Watson</cntper>
+          <cntorg>USDA Forest Service, Rocky Mountain Research Station</cntorg>
+        </cntperp>
+        <cntpos>Research Social Scientist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>790 East Beckwith Avenue</address>
+          <city>Missoula</city>
+          <state>MT</state>
+          <postal>59801</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>406-542-4197</cntvoice>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Biological Data Profile of the Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001.1-1999</metstdv>
+  </metainfo>
+</metadata>
