@@ -7,6 +7,11 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(mice)
+library(caret)
+library(randomForest)
+library(rstanarm)
+library(loo)
+library(arm)
 BMWC_1982_Data <- read_csv("RDS-2017-0015/Data/BMWC_1982_Data.csv")
 Marshall <- BMWC_1982_Data
 ```
@@ -66,8 +71,6 @@ ggplot(data = Marshall, aes(satisfied))+geom_histogram(stat = "count")
 ##Run the Model 
 Now that is done we can run the model
 ```{r}
-library(caret)
-library(randomForest)
 
 set.seed(3000)
 trainindex <- createDataPartition(Marshall_complete$satisfied, p = 0.8,
@@ -88,7 +91,7 @@ test_prediction<-predict(Marshall.rf, Marshall_test[1:180])
 
 confusionMatrix(data = test_prediction, reference = Marshall_test$satisfied)
 ```
-Now we can tune the algorithm first I will try tools supplied by the randomforest package and then I will use the tools in the CARET package 
+Now we can tune the algorithm 
 ```{r}
 set.seed(3000)
 
@@ -103,4 +106,36 @@ test_prediction_final <- predict(Marshall.rf_best, Marshall_test[1:180])
 
 confusionMatrix(data = test_prediction_final, reference = Marshall_test$satisfied)
 ```
-From above I was able to get an accuracy of 74% after tuning the model. My next step will be to try another model. 
+```{r}
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit <- train(satisfied~., data = Marshall_train, method = "rf",
+                   trControl = ctrl, tuneLength = 5)
+
+pred = predict(model_fit, newdata = Marshall_test)
+confusionMatrix(data = pred, Marshall_test$satisfied)
+```
+
+
+From above I was able to get an accuracy of 76% after tuning the model. My next step will be to try another model. I am thinking I would like to try logistic regression, but not just any logistic regression,I am going to use bayesian logistic regression. 
+```{r}
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit_bayesian <- train(satisfied~., data = Marshall_train, method = "bayesglm",
+                   trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
+
+pred = predict(model_fit_bayesian, newdata = Marshall_test)
+confusionMatrix(data = pred, Marshall_test$satisfied)
+```
+
+The results are pretty similiar to what I got with the random forest model, lets try one more model, k-nearest neighbor. 
+```{r}
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit_knn <- train(satisfied~., data = Marshall_train, method = "knn",
+                   trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
+
+pred = predict(model_fit_knn, newdata = Marshall_test)
+confusionMatrix(data = pred, Marshall_test$satisfied)
+```
+In this excercise, I worked with a living dataset with data that consisted of visitor info for the Marshall Wilderness Center in Colorado. After cleaning and dealing with NAs in the dataset, I fitted three models: random forest, bayesian logistic regression, and k-nearest neighbor. The random forest model and bayesian logisitic regression performed better than the k-nearest neighbor, and the random forest model did the best out of all three, which is not too surprising considering the high number of variables. In the future, it would be better to preprocess the NAs a little more. For this excercise, I used predicative mean matching and polytomous regression imputation, it would be interesting how the models would be affected if different imputation methods were used. Furthermore, I only looked at three models, another direction might be to look at other classification models such as Support Vectoor Machines (SVMs) or even a Deep Learning Model. 
