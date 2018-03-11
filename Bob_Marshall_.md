@@ -153,36 +153,6 @@ ggplot(data = Marshall, aes(satisfied))+geom_histogram(stat = "count")
 ![](Bob_Marshall__files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png) \#\#Run the Model Now that is done we can run the model
 
 ``` r
-library(caret)
-```
-
-    ## 
-    ## Attaching package: 'caret'
-
-    ## The following object is masked from 'package:purrr':
-    ## 
-    ##     lift
-
-``` r
-library(randomForest)
-```
-
-    ## randomForest 4.6-12
-
-    ## Type rfNews() to see new features/changes/bug fixes.
-
-    ## 
-    ## Attaching package: 'randomForest'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     combine
-
-    ## The following object is masked from 'package:ggplot2':
-    ## 
-    ##     margin
-
-``` r
 set.seed(3000)
 trainindex <- createDataPartition(Marshall_complete$satisfied, p = 0.8,
                                   list = FALSE,
@@ -574,7 +544,7 @@ confusionMatrix(data = test_prediction, reference = Marshall_test$satisfied)
     ##        'Positive' Class : 1               
     ## 
 
-Now we can tune the algorithm first I will try tools supplied by the randomforest package and then I will use the tools in the CARET package
+Now we can tune the algorithm
 
 ``` r
 set.seed(3000)
@@ -649,4 +619,347 @@ confusionMatrix(data = test_prediction_final, reference = Marshall_test$satisfie
     ##        'Positive' Class : 1               
     ## 
 
-From above I was able to get an accuracy of 74% after tuning the model. My next step will be to try another model.
+``` r
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit <- train(satisfied~., data = Marshall_train, method = "rf",
+                   trControl = ctrl, tuneLength = 5)
+
+pred = predict(model_fit, newdata = Marshall_test)
+confusionMatrix(data = pred, Marshall_test$satisfied)
+```
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction  1  2
+    ##          1 44 15
+    ##          2 20 68
+    ##                                           
+    ##                Accuracy : 0.7619          
+    ##                  95% CI : (0.6847, 0.8282)
+    ##     No Information Rate : 0.5646          
+    ##     P-Value [Acc > NIR] : 5.029e-07       
+    ##                                           
+    ##                   Kappa : 0.5113          
+    ##  Mcnemar's Test P-Value : 0.499           
+    ##                                           
+    ##             Sensitivity : 0.6875          
+    ##             Specificity : 0.8193          
+    ##          Pos Pred Value : 0.7458          
+    ##          Neg Pred Value : 0.7727          
+    ##              Prevalence : 0.4354          
+    ##          Detection Rate : 0.2993          
+    ##    Detection Prevalence : 0.4014          
+    ##       Balanced Accuracy : 0.7534          
+    ##                                           
+    ##        'Positive' Class : 1               
+    ## 
+
+From above I was able to get an accuracy of 76% after tuning the model. My next step will be to try another model. I am thinking I would like to try logistic regression, but not just any logistic regression,I am going to use bayesian logistic regression.
+
+``` r
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit_bayesian <- train(satisfied~., data = Marshall_train, method = "bayesglm",
+                   trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
+```
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, TRLINF33, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning: fitted probabilities numerically 0 or 1 occurred
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5,
+    ## CURRES7
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, SCENRY4, ESTCAMP6,
+    ## REJCOND3, REJLOC8, VISWLD7, WEAR8, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT26, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: TRAVEL6, OUTFTR4, ESTCAMP6,
+    ## WLDIMP4, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT12, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+``` r
+pred = predict(model_fit_bayesian, newdata = Marshall_test)
+confusionMatrix(data = pred, Marshall_test$satisfied)
+```
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction  1  2
+    ##          1 40 27
+    ##          2 24 56
+    ##                                           
+    ##                Accuracy : 0.6531          
+    ##                  95% CI : (0.5702, 0.7296)
+    ##     No Information Rate : 0.5646          
+    ##     P-Value [Acc > NIR] : 0.01805         
+    ##                                           
+    ##                   Kappa : 0.2981          
+    ##  Mcnemar's Test P-Value : 0.77943         
+    ##                                           
+    ##             Sensitivity : 0.6250          
+    ##             Specificity : 0.6747          
+    ##          Pos Pred Value : 0.5970          
+    ##          Neg Pred Value : 0.7000          
+    ##              Prevalence : 0.4354          
+    ##          Detection Rate : 0.2721          
+    ##    Detection Prevalence : 0.4558          
+    ##       Balanced Accuracy : 0.6498          
+    ##                                           
+    ##        'Positive' Class : 1               
+    ## 
+
+The results are pretty similiar to what I got with the random forest model, lets try one more model, k-nearest neighbor.
+
+``` r
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit_knn <- train(satisfied~., data = Marshall_train, method = "knn",
+                   trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
+```
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, TRLINF33, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, TRLINF33, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, TRLINF33, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, TRLINF33, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, TRLINF33, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5,
+    ## CURRES7
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5,
+    ## CURRES7
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5,
+    ## CURRES7
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5,
+    ## CURRES7
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5,
+    ## CURRES7
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, SCENRY4, ESTCAMP6,
+    ## REJCOND3, REJLOC8, VISWLD7, WEAR8, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, SCENRY4, ESTCAMP6,
+    ## REJCOND3, REJLOC8, VISWLD7, WEAR8, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, SCENRY4, ESTCAMP6,
+    ## REJCOND3, REJLOC8, VISWLD7, WEAR8, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, SCENRY4, ESTCAMP6,
+    ## REJCOND3, REJLOC8, VISWLD7, WEAR8, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, SCENRY4, ESTCAMP6,
+    ## REJCOND3, REJLOC8, VISWLD7, WEAR8, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT26, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT26, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT26, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT26, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT26, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: TRAVEL6, OUTFTR4, ESTCAMP6,
+    ## WLDIMP4, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: TRAVEL6, OUTFTR4, ESTCAMP6,
+    ## WLDIMP4, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: TRAVEL6, OUTFTR4, ESTCAMP6,
+    ## WLDIMP4, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: TRAVEL6, OUTFTR4, ESTCAMP6,
+    ## WLDIMP4, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: TRAVEL6, OUTFTR4, ESTCAMP6,
+    ## WLDIMP4, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT12, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT12, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT12, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT12, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: SHOT12, OUTFTR4, ESTCAMP6,
+    ## WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+    ## Warning in preProcess.default(thresh = 0.95, k = 5, freqCut = 19, uniqueCut
+    ## = 10, : These variables have zero variances: OUTFTR4, ESTCAMP6, WLDIMP5
+
+``` r
+pred = predict(model_fit_knn, newdata = Marshall_test)
+confusionMatrix(data = pred, Marshall_test$satisfied)
+```
+
+    ## Confusion Matrix and Statistics
+    ## 
+    ##           Reference
+    ## Prediction  1  2
+    ##          1 24 24
+    ##          2 40 59
+    ##                                           
+    ##                Accuracy : 0.5646          
+    ##                  95% CI : (0.4805, 0.6461)
+    ##     No Information Rate : 0.5646          
+    ##     P-Value [Acc > NIR] : 0.53454         
+    ##                                           
+    ##                   Kappa : 0.0884          
+    ##  Mcnemar's Test P-Value : 0.06079         
+    ##                                           
+    ##             Sensitivity : 0.3750          
+    ##             Specificity : 0.7108          
+    ##          Pos Pred Value : 0.5000          
+    ##          Neg Pred Value : 0.5960          
+    ##              Prevalence : 0.4354          
+    ##          Detection Rate : 0.1633          
+    ##    Detection Prevalence : 0.3265          
+    ##       Balanced Accuracy : 0.5429          
+    ##                                           
+    ##        'Positive' Class : 1               
+    ## 
+
+In this excercise, I worked with a living dataset with data that consisted of visitor info for the Marshall Wilderness Center in Colorado. After cleaning and dealing with NAs in the dataset, I fitted three models: random forest, bayesian logistic regression, and k-nearest neighbor. The random forest model and bayesian logisitic regression performed better than the k-nearest neighbor, and the random forest model did the best out of all three, which is not too surprising considering the high number of variables. In the future, it would be better to preprocess the NAs a little more. For this excercise, I used predicative mean matching and polytomous regression imputation, it would be interesting how the models would be affected if different imputation methods were used. Furthermore, I only looked at three models, another direction might be to look at other classification models such as Support Vectoor Machines (SVMs) or even a Deep Learning Model.
