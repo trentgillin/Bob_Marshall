@@ -112,7 +112,7 @@ ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
 model_fit <- train(satisfied~., data = Marshall_train, method = "rf",
                    trControl = ctrl, tuneLength = 5)
 
-pred = predict(model_fit, newdata = Marshall_test)
+pred = predict(model_fit, newdata = Marshall_test[, -181])
 confusionMatrix(data = pred, Marshall_test$satisfied)
 ```
 
@@ -124,7 +124,7 @@ ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
 model_fit_bayesian <- train(satisfied~., data = Marshall_train, method = "bayesglm",
                    trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
 
-pred = predict(model_fit_bayesian, newdata = Marshall_test)
+pred = predict(model_fit_bayesian, newdata = Marshall_test[, -181])
 confusionMatrix(data = pred, Marshall_test$satisfied)
 ```
 
@@ -135,7 +135,7 @@ ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
 model_fit_knn <- train(satisfied~., data = Marshall_train, method = "knn",
                    trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
 
-pred = predict(model_fit_knn, newdata = Marshall_test)
+pred = predict(model_fit_knn, newdata = Marshall_test[, -181])
 confusionMatrix(data = pred, Marshall_test$satisfied)
 ```
 In this excercise, I worked with a living dataset with data that consisted of visitor info for the Marshall Wilderness Center in Colorado. After cleaning and dealing with NAs in the dataset, I fitted three models: random forest, bayesian logistic regression, and k-nearest neighbor. The random forest model and bayesian logisitic regression performed better than the k-nearest neighbor, and the random forest model did the best out of all three, which is not too surprising considering the high number of variables. In the future, it would be better to preprocess the NAs a little more. For this excercise, I used predicative mean matching and polytomous regression imputation, it would be interesting how the models would be affected if different imputation methods were used. Furthermore, I only looked at three models, another direction might be to look at other classification models such as Support Vectoor Machines (SVMs) or even a Deep Learning Model. 

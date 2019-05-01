@@ -1,0 +1,139 @@
+Bob Marshall Wilderness Center
+========================================================
+author: Trent Gillingham
+date: 
+autosize: true
+
+Objectives: 
+========================================================
+
+- Introduction
+- Analysis
+- Results
+- Future Steps 
+
+Introduction: Why I Chose This Project
+========================================================
+
+- Ecology Dataset 
+  - USDA.gov: Forestry Research
+- Find the right machine learning model with the highest accuracy
+
+Analysis: Overview of Data
+========================================================
+<font size = "3">
+```{r}
+library(tidyverse)
+BMWC_1982_Data <- read_csv("RDS-2017-0015/Data/BMWC_1982_Data.csv")
+Marshall <- BMWC_1982_Data
+Marshall %>%
+  dplyr::select(c(SATIS, PHOTO, NUMHORS, NATUR, HIKE, TRAVEL, FISH)) %>%
+  head()
+```
+</font>
+Analysis: Output Variable
+========================================================
+<font size = "3">
+```{r, fig.align = "center", fig.height = 6, fig.width = 8}
+Marshall%<>%
+  mutate(satisfied = as.factor(ifelse(SATIS == 1, TRUE, FALSE)))%>%
+  filter(SATIS != 9)
+Marshall%>%
+  ggplot(aes(satisfied, fill = satisfied))+geom_histogram(stat = "count")+
+  ggtitle("Histogram of Satisfied Variable")+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+</font>
+
+Analysis: More Data Cleaning
+========================================================
+<font size = "3">
+```{r}
+library(caret)
+Marshall_complete <- read_csv("/Users/trent/Bob_Marshall/Marshall_complete.csv")
+masscoercion <- function(x){
+  if (nlevels(as.factor(x))>1 & nlevels(as.factor(x))<8) {
+    x <- as.factor(x)
+ } else {
+   x
+   }
+}
+
+Marshall_complete<- as.data.frame(map(Marshall_complete, masscoercion))
+
+set.seed(3000)
+trainindex <- createDataPartition(Marshall_complete$satisfied, p = 0.8,
+                                  list = FALSE,
+                                  times = 1)
+
+Marshall_train <- Marshall_complete[trainindex,]
+Marshall_test <- Marshall_complete[-trainindex,]
+```
+</font>
+- Needed to designate variables as factors
+- Filled missing data with MICE package
+- Split data
+
+Analysis: First Random Forest
+========================================================
+<font size = "3">
+```{r, fig.align = "center", fig.height = 6, fig.width = 8}
+library(randomForest)
+
+set.seed(3000)
+
+Marshall.rf <- randomForest(satisfied~., data = Marshall_train, importance = TRUE)
+
+varImpPlot(Marshall.rf, type = 1)
+```
+</font>
+- Accuracy of 73% 
+
+Analysis: Second Random Forest
+========================================================
+<font size = "3">
+```{r, fig.align = "center", fig.height = 6, fig.width = 8}
+set.seed(3000)
+
+bestmtry <- tuneRF(Marshall_train[,-181], Marshall_train$satisfied, stepFactor=1.5, improve=1e-5, ntree=500, doBest = TRUE)
+```
+</font>
+- Accuracy of 74%
+
+Analysis: Third Random Forest
+========================================================
+<font size = "3">
+```{r, fig.align = "center", fig.height = 6, fig.width = 8}
+set.seed(3000)
+ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
+model_fit <- train(satisfied~., data = Marshall_train, method = "rf",
+                   trControl = ctrl, tuneLength = 5)
+plot(model_fit)
+```
+</font>
+- Accuracy of 76%
+
+Analysis:Bayesian and K-Nearest Neighbor 
+========================================================
+
+```{r, fig.align = "center", fig.height = 6, fig.width = 8, echo= FALSE}
+set.seed(3000)
+model_fit_knn <- train(satisfied~., data = Marshall_train, method = "knn",
+                   trControl = ctrl, tuneLength = 5, preProcess = c("center", "scale"))
+plot(model_fit_knn, print.thres = 0.5, type="S")
+```
+
+Results
+========================================================
+
+- Accuracy for Each Model 
+  - Best Random Forest Model: 76%
+  - Bayesian Logistic Regression: 65%
+  - K-Nearest Neighbor: 56%
+  
+Next Steps
+========================================================
+
+- Further Train Models
+- Further Analysis into Important Variables
+  
