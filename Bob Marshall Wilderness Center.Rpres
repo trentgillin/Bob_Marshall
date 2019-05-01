@@ -21,6 +21,7 @@ Introduction: Why I Chose This Project
 
 Analysis: Overview of Data
 ========================================================
+
 <font size = "3">
 ```{r}
 library(tidyverse)
@@ -47,10 +48,11 @@ Marshall%>%
 
 Analysis: More Data Cleaning
 ========================================================
+
 <font size = "3">
 ```{r}
 library(caret)
-Marshall_complete <- read_csv("/Users/trent/Bob_Marshall/Marshall_complete.csv")
+Marshall_complete <- read_csv("Marshall_complete.csv")
 masscoercion <- function(x){
   if (nlevels(as.factor(x))>1 & nlevels(as.factor(x))<8) {
     x <- as.factor(x)
@@ -76,6 +78,7 @@ Marshall_test <- Marshall_complete[-trainindex,]
 
 Analysis: First Random Forest
 ========================================================
+
 <font size = "3">
 ```{r, fig.align = "center", fig.height = 6, fig.width = 8}
 library(randomForest)
@@ -102,6 +105,7 @@ bestmtry <- tuneRF(Marshall_train[,-181], Marshall_train$satisfied, stepFactor=1
 
 Analysis: Third Random Forest
 ========================================================
+
 <font size = "3">
 ```{r, fig.align = "center", fig.height = 6, fig.width = 8}
 set.seed(3000)
