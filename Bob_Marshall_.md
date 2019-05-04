@@ -1,7 +1,7 @@
 Bob\_Marshall Excercise
 ================
 
-\#\#Bob Marshall Machine Learning Excercise
+## Bob Marshall Machine Learning Excercise
 
 For this project I wanted to explore machine learning in R with a real
 dataset. I am also a huge fan of all things ecology, I enjoy hiking and
@@ -10,7 +10,7 @@ page dedicated to Forest Service Research and a group of researchers
 collected survey data from visitors to the the Bob Marshall Wilderness
 Complex in 1982.
 
-\#Data Selecting and Formatting
+# Data Selecting and Formatting
 
 Let’s start by taking a look at our dataset.
 
@@ -163,7 +163,8 @@ ggplot(data = Marshall, aes(satisfied))+geom_histogram(stat = "count")
     ## Warning: Ignoring unknown parameters: binwidth, bins, pad
 
 ![](Bob_Marshall__files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
-\#\#Run the Model
+
+## Run the Model
 
 Now that is done we can run the model
 

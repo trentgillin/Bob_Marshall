@@ -12,33 +12,39 @@ library(randomForest)
 library(rstanarm)
 library(loo)
 library(arm)
+
 BMWC_1982_Data <- read_csv("RDS-2017-0015/Data/BMWC_1982_Data.csv")
 Marshall <- BMWC_1982_Data
 ```
 
-##Bob Marshall Machine Learning Excercise 
+## Bob Marshall Machine Learning Excercise 
 
 For this project I wanted to explore machine learning in R with a real dataset. I am also a huge fan of all things ecology, I enjoy hiking and generally being in the outdoors. From the USDA.gov website, there is a page dedicated to Forest Service Research and a group of researchers collected survey data from visitors to the the Bob Marshall Wilderness Complex in 1982. 
 
-#Data Selecting and Formatting
+# Data Selecting and Formatting
 
 Let's start by taking a look at our dataset. 
+
 ```{r}
 Marshall %>% head()
 Marshall %>% length()
 Marshall %>% count()
 sum(is.na(Marshall))
 ```
+
 From the above code, we can see we have 181 variables, 746 obserations, and it looks like most of our variables are encoded as 0s and 1s. 
 
-I know my output variable will be a satisfaction score that is rated 1 = best, 5 is worst and 9 means missing. For this project, I am just going to categorize the variable into two categories,TRUE, FALSE and call it "satisfied", all 1s will be TRUE and anything else will be FALSE and 9s will be excluded from analysis. 
+I know my output variable will be a satisfaction score that is rated 1 = best, 5 is worst and 9 means missing. For this project, I am just going to categorize the variable into two categories,TRUE, FALSE and call it "satisfied", all 1s will be TRUE and anything else will be FALSE and 9s will be excluded from analysis.
+
 ```{r}
 Marshall <- Marshall%>%
   mutate(satisfied = as.factor(ifelse(SATIS == 1, TRUE, FALSE)))%>%
   filter(SATIS != 9)
 Marshall$SATIS <- NULL
 ```
+
 Now for the missing data
+
 ```{r}
 convertnines <- function(x){
   x <- ifelse(x == 99 | x == 9 | x == 999, NA, x)
@@ -47,6 +53,7 @@ convertnines <- function(x){
 Marshall <- as.data.frame(map(Marshall, convertnines))
 ```
 
+
 ```{r}
 Marshall_temp <- mice(Marshall, m = 5, defaultmethod = c("pmm", "polyreg"), seed = 500)
 
@@ -54,7 +61,9 @@ Marshall_complete <- complete(Marshall_temp)
 
 sum(is.na(Marshall_complete))
 ```
+
 Because several of our categorical variables are integers we need to convert them to factors 
+
 ```{r}
 masscoercion <- function(x){
   if (nlevels(as.factor(x))>1 & nlevels(as.factor(x))<8) {
@@ -70,9 +79,11 @@ Marshall_complete<- as.data.frame(map(Marshall_complete, masscoercion))
 ```{r}
 ggplot(data = Marshall, aes(satisfied))+geom_histogram(stat = "count")
 ```
-##Run the Model 
+
+## Run the Model 
 
 Now that is done we can run the model
+
 ```{r}
 
 set.seed(3000)
@@ -94,7 +105,9 @@ test_prediction<-predict(Marshall.rf, Marshall_test[1:180])
 
 confusionMatrix(data = test_prediction, reference = Marshall_test$satisfied)
 ```
+
 Now we can tune the algorithm 
+
 ```{r}
 set.seed(3000)
 
@@ -121,6 +134,7 @@ confusionMatrix(data = pred, Marshall_test$satisfied)
 
 
 From above I was able to get an accuracy of 76% after tuning the model. My next step will be to try another model. I am thinking I would like to try logistic regression, but not just any logistic regression,I am going to use bayesian logistic regression. 
+
 ```{r}
 set.seed(3000)
 ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
@@ -132,6 +146,7 @@ confusionMatrix(data = pred, Marshall_test$satisfied)
 ```
 
 The results are pretty similiar to what I got with the random forest model, lets try one more model, k-nearest neighbor. 
+
 ```{r}
 set.seed(3000)
 ctrl <- trainControl(method = "repeatedcv", number = 10, savePredictions = TRUE)
@@ -141,4 +156,5 @@ model_fit_knn <- train(satisfied~., data = Marshall_train, method = "knn",
 pred = predict(model_fit_knn, newdata = Marshall_test[, -181])
 confusionMatrix(data = pred, Marshall_test$satisfied)
 ```
+
 In this excercise, I worked with a living dataset with data that consisted of visitor info for the Marshall Wilderness Center in Colorado. After cleaning and dealing with NAs in the dataset, I fitted three models: random forest, bayesian logistic regression, and k-nearest neighbor. The random forest model and bayesian logisitic regression performed better than the k-nearest neighbor, and the random forest model did the best out of all three, which is not too surprising considering the high number of variables. In the future, it would be better to preprocess the NAs a little more. For this excercise, I used predicative mean matching and polytomous regression imputation, it would be interesting how the models would be affected if different imputation methods were used. Furthermore, I only looked at three models, another direction might be to look at other classification models such as Support Vectoor Machines (SVMs) or even a Deep Learning Model. 
